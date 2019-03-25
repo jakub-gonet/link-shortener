@@ -1,0 +1,2 @@
+class UrlAccess < ApplicationRecord
+end
