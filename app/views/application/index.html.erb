@@ -1,8 +1,9 @@
+<p id="alert"><%= alert %></p>
+
 <h1>Provide your link below</h1>
 
-
 <%= form_with model: Url.new do |form| %>
-  <%= form.text_field :url %>
+  <%= form.text_field :base_url %>
   <%= form.submit %>
 <% end %>
 
