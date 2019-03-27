@@ -11,8 +11,7 @@ class UrlsController < ApplicationController
     @url = Url.find_or_create_by(base_url: base_url) do |url|
       url.shortened_url = ShortenedLinksGenerator.shorten(url)
     end
-
-    if @url.save
+    if @url.valid?
       redirect_to @url
     else
       redirect_to root_path, alert: @url.error_messages
