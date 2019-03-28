@@ -13,7 +13,7 @@ class UrlsController < ApplicationController
     if @url.valid?
       redirect_to @url
     else
-      redirect_to root_path, alert: @url.error_messages
+      redirect_to root_path, alert: @url.errors.full_messages
     end
   end
 end

@@ -1,4 +1,10 @@
-<p id="alert"><%= alert %></p>
+<p id="alert">
+  <% if alert %>
+    <% alert.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+<% end %>
+</p>
 
 <h1>Provide your link below</h1>
 

@@ -17,11 +17,11 @@ class Url < ApplicationRecord
   def ensure_domain_not_forbidden
     domain = Addressable::URI.heuristic_parse(base_url).normalize.domain || ''
 
-    errors.add(:url, 'Bad URL format') if domain.empty?
+    errors.add(:url, 'bad format') if domain.empty?
 
     forbidden = Rails.application.config.forbidden_domains
     if forbidden.any? { |x| domain.start_with?(x) }
-      errors.add(:domain, "URL from #{domain} domain can't be shortened")
+      errors.add(:domain, "#{domain} can't be used to shorten links")
     end
   end
 end
