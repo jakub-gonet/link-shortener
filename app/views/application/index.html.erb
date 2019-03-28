@@ -1,8 +1,10 @@
 <p id="alert">
   <% if alert %>
+  <ul>
     <% alert.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
 </p>
 
