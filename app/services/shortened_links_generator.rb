@@ -1,8 +1,15 @@
 module ShortenedLinksGenerator
+  require 'digest/sha1'
+
   module_function
 
-  def shorten(url)
-    nil
+  def shorten(url, adj_n = 2, animals_n = 1)
+    hash = Digest::SHA1.hexdigest(url).to_i(16)
+    rng = Random.new(hash)
+    adjectives_s = adjectives.sample(adj_n, random: rng).join('-')
+    animals_s = animals.sample(animals_n, random: rng).join('-')
+    "#{adjectives_s}-#{animals_s}"
+  end
 
   def resource_from_file(path)
     res = []
