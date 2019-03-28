@@ -8,11 +8,11 @@ class Url < ApplicationRecord
 
   after_validation :ensure_domain_not_forbidden
 
-  private
-
   def error_messages
     errors.full_messages.join('\n')
   end
+
+  private
 
   def ensure_domain_not_forbidden
     uri = Addressable::URI.parse(base_url).normalize
