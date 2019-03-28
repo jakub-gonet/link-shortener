@@ -1,13 +1,3 @@
-<p id="alert">
-  <% if alert %>
-  <ul>
-    <% alert.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-</p>
-
 <h1>Provide your link below</h1>
 
 <%= form_with model: Url.new do |form| %>
