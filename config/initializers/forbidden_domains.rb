@@ -1,0 +1,1 @@
+Rails.application.config.forbidden_domains = ['localhost']
