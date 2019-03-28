@@ -6,19 +6,20 @@ class Url < ApplicationRecord
   validates :base_url, presence: true
   validates :shortened_url, presence: true, uniqueness: true
 
+  after_validation :ensure_domain_not_forbidden
+
+  private
+
   def error_messages
     errors.full_messages.join('\n')
   end
 
-  class << self
-    def domain_forbidden?(domain)
-      return true if domain.nil?
+  def ensure_domain_not_forbidden
+    uri = Addressable::URI.parse(base_url).normalize
 
-      forbidden = Rails.application.config.forbidden_domains
-      forbidden.all? do |x|
-        !domain.start_with?(x)
-      end
+    forbidden = Rails.application.config.forbidden_domains
+    if forbidden.any? {|x| !uri.domain.start_with?(x)}
+      errors.add(:domain, "URL from #{uri.domain} domain can't be shortened")
     end
   end
-
 end
