@@ -1,1 +1,1 @@
-Rails.application.config.forbidden_domains = ['localhost']
+Rails.application.config.forbidden_domains = ['bit.do', 'bitly.com', 'tiny.cc']
