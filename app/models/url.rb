@@ -3,6 +3,7 @@
 require 'addressable/uri'
 
 class Url < ApplicationRecord
+  has_many :url_access
   validates :base_url, presence: true
   validates :shortened_url, presence: true, uniqueness: true
 
