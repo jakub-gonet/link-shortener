@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_203801) do
+ActiveRecord::Schema.define(version: 2019_03_28_204958) do
 
   create_table "url_accesses", force: :cascade do |t|
     t.integer "url_id"
-    t.datetime "accessed"
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
