@@ -13,7 +13,8 @@ class UrlsController < ApplicationController
     if @url.valid?
       redirect_to @url
     else
-      redirect_to root_path, alert: @url.errors.full_messages
+      flash[:error] = @url.errors.full_messages
+      redirect_to root_path
     end
   end
 end
