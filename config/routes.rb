@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root controller: :application, action: :index
   resources :s, only: [:show]
   resources :stats, only: [:show, :index]
-  resources :urls, except: [:new]
+  resources :urls, only: [:create, :show, :index]
 
 end

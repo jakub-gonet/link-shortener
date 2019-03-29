@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 class UrlsController < ApplicationController
+  def index
+
+  end
+
   def show
+    # TODO: add slugs
     @url = Url.find(params[:id])
   end
 
