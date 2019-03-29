@@ -1,0 +1,6 @@
+<h1>Showing last <%= @recent_count %> shortened links</h1>
+<ul>
+  <% @url.each do |url| %>
+    <li><%= url.shortened_url %> (<%= url.base_url %>)</li>
+  <% end %>
+</ul>

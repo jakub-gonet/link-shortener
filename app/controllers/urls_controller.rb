@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class UrlsController < ApplicationController
+  RECENT_URLS_COUNT = 30
   def index
-
+    @recent_count = RECENT_URLS_COUNT
+    @url = Url.last(RECENT_URLS_COUNT)
   end
 
   def show
