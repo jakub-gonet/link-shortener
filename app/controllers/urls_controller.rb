@@ -6,8 +6,7 @@ class UrlsController < ApplicationController
   end
 
   def show
-    # TODO: add slugs
-    @url = Url.find(params[:id])
+    @url = Url.find_by shortened_url: params[:shortened_url]
   end
 
   def create

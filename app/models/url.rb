@@ -9,6 +9,10 @@ class Url < ApplicationRecord
 
   after_validation :ensure_domain_not_forbidden
 
+  def to_param
+    shortened_url
+  end
+
   def error_messages
     errors.full_messages.join('\n')
   end

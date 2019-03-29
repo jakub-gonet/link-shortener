@@ -2,7 +2,7 @@
 
 class SController < ApplicationController
   def show
-    url = Url.find_by shortened_url: params[:id]
+    url = Url.find_by shortened_url: params[:shortened_url]
     if !url.nil?
       access = UrlAccess.new(url_id: url.id, ip: request.remote_ip)
       unless access.save
