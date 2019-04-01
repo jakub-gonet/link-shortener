@@ -4,7 +4,7 @@ class StatsController < ApplicationController
   RECENT_DAYS = 30
 
   def index
-    @urls_views = UrlAccess.count_all_urls_views_since(Date.today - RECENT_DAYS)
+    @urls_views = UrlAccess.all_urls_views_since(Date.today - RECENT_DAYS)
   end
 
   def show
