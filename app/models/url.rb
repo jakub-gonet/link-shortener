@@ -22,7 +22,7 @@ class Url < ApplicationRecord
   private
 
   def create_shortened_url
-    self.shortened_url = ShortenedLinksGenerator.shorten(base_url)
+    self.shortened_url = ShortenedLinksGenerator.shorten(base_url || '')
   end
 
   def ensure_domain_not_empty
