@@ -1,7 +1,14 @@
+# frozen_string_literal: true
+
 class ShortenedLinksGenerator
   require 'digest/sha1'
 
   def self.shorten(url, adj_n = 2, animals_n = 1)
+    unless adj_n.positive? && animals_n.positive?
+      raise ArgumentError,
+            'Invalid number of adjectives or animals'
+    end
+
     hash = Digest::SHA1.hexdigest(url).to_i(16)
     rng = Random.new(hash)
     adjectives_s = adjectives.sample(adj_n, random: rng).join('-')
