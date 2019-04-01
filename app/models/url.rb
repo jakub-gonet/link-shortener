@@ -7,6 +7,7 @@ class Url < ApplicationRecord
   validates :base_url, presence: true
   validates :shortened_url, presence: true, uniqueness: true
 
+  before_validation :create_shortened_url
   after_validation :ensure_domain_not_forbidden
 
   def to_param
@@ -18,6 +19,10 @@ class Url < ApplicationRecord
   end
 
   private
+
+  def create_shortened_url
+    self.shortened_url = ShortenedLinksGenerator.shorten(base_url)
+  end
 
   def ensure_domain_not_forbidden
     domain = Addressable::URI.heuristic_parse(base_url).normalize.domain || ''
