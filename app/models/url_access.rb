@@ -4,14 +4,18 @@ class UrlAccess < ApplicationRecord
   belongs_to :url
   validates :ip, presence: true
 
-  def self.url_views_since(shortened, date)
+  def self.count_all_urls_views_since(date)
+    UrlAccess.joins(:url)
+             .where('url_accesses.created_at >= :date', date: date)
+             .group('shortened_url, DATE(url_accesses.created_at)')
+             .pluck('shortened_url, DATE(url_accesses.created_at), COUNT(*) as c')
+  end
+
+  def self.count_url_views_since(shortened, date)
     UrlAccess.joins(:url)
              .where('shortened_url = :url AND url_accesses.created_at >= :date',
                     url: shortened, date: date)
-             .all
-  end
-
-  def self.url_views_by_ip(shortened, ip, date)
-    url_views_since(shortened, date).where("ip = #{ip}").all
+             .group('DATE(url_accesses.created_at)')
+             .count
   end
 end
