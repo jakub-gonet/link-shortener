@@ -11,6 +11,8 @@ module ShortenedLinksGenerator
     "#{adjectives_s}-#{animals_s}"
   end
 
+  private
+
   def resource_from_file(path)
     res = []
     File.open(path) do |f|
@@ -21,13 +23,13 @@ module ShortenedLinksGenerator
     res
   end
 
-  def self.adjectives
+  def adjectives
     file = File.join(File.dirname(__FILE__), 'adjectives.txt')
-    @ADJECTIVES ||= resource_from_file(file)
+    @adjectives ||= resource_from_file(file)
   end
 
-  def self.animals
+  def animals
     file = File.join(File.dirname(__FILE__), 'animals.txt')
-    @ANIMALS ||= resource_from_file(file)
+    @animals ||= resource_from_file(file)
   end
 end
