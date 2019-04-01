@@ -282,7 +282,7 @@ jackal
 jaguar
 javanese
 jay
-jay,-blue
+jay-blue
 jellyfish
 junglefowl
 kakapo
