@@ -5,16 +5,18 @@
                       class: "shorten-input" %>
   <%= form.submit class: "shorten-btn" %>
 <% end %>
-<div class="errors">
-  <ul>
-    <% Array(flash[:error]).each do |origin, messages| %>
-      <li><%= origin %>
-        <ul>
-          <% messages&.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<% unless flash[:error].nil? %>
+  <div class="errors">
+    <ul>
+      <% Array(flash[:error]).each do |origin, messages| %>
+        <li>Origin: <%= origin %>
+          <ul>
+            <% messages&.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
