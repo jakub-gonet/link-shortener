@@ -13,6 +13,7 @@ class UrlsController < ApplicationController
 
   def create
     @url = Url.find_or_create_by!(url_params)
+    redirect_to @url
   end
 
   private
