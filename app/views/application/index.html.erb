@@ -1,8 +1,20 @@
 <h1 class="headline">Link shortener</h1>
-
-  <%= form_with html: {class: "search-bar"}, model: Url.new do |form| %>
-    <%= form.text_field :base_url,
-                        placeholder: "Put link here to shorten it",
-                        class: "shorten-input" %>
-    <%= form.submit class: "shorten-btn" %>
-  <% end %>
+<%= form_with html: {class: "search-bar"}, model: Url.new do |form| %>
+  <%= form.text_field :base_url,
+                      placeholder: "Put link here to shorten it",
+                      class: "shorten-input" %>
+  <%= form.submit class: "shorten-btn" %>
+<% end %>
+<div class="errors">
+  <ul>
+    <% Array(flash[:error]).each do |origin, messages| %>
+      <li><%= origin %>
+        <ul>
+          <% messages&.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
