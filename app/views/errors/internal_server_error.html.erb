@@ -1,0 +1,12 @@
+<h1 class="centered">Internal server error</h1>
+<ul>
+  <% Array(@errors).each do |origin, messages| %>
+    <li><%= origin %>
+      <ul>
+        <% messages&.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

@@ -11,13 +11,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def render_record_invalid(exception)
-    flash[:error] = exception.record.errors
-    redirect_to root_path, status: :bad_request
+    redirect_to controller: :errors, action: :internal_server_error
   end
 
   def render_record_not_found(exception)
-    flash[:error] = exception.to_s
-    logger.info(exception)
-    redirect_to root_path
+    redirect_to controller: :errors, action: :not_found
   end
 end
