@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SController < ApplicationController
+class RedirectsController < ApplicationController
   def show
     url = Url.find_by shortened_url: params[:shortened_url]
     if !url.nil?
