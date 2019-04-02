@@ -8,17 +8,11 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @url = Url.find_by shortened_url: params[:shortened_url]
+    @url = Url.find_by!(shortened_url: params[:shortened_url])
   end
 
   def create
-    @url = Url.find_or_create_by(url_params)
-    if @url.valid?
-      redirect_to @url
-    else
-      flash[:error] = @url.errors.full_messages
-      redirect_to root_path
-    end
+    @url = Url.find_or_create_by!(url_params)
   end
 
   private
