@@ -48,3 +48,10 @@ $border-radius: 7px;
   padding: 0 5%;
   font-size: $font-size;
 }
+
+.errors{
+  margin-top: 5%;
+  padding: 5%;
+  background-color: $main-color-dim;
+  border-radius: $border-radius;
+}
