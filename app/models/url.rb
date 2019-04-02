@@ -15,18 +15,14 @@ class Url < ApplicationRecord
     shortened_url
   end
 
-  def error_messages
-    errors.full_messages.join('\n')
-  end
-
   private
 
   def create_shortened_url
-    self.shortened_url = ShortenedLinksGenerator.shorten(base_url || '')
+    self.shortened_url = ShortenedLinksGenerator.shorten(base_url)
   end
 
   def ensure_domain_not_empty
-    errors.add(:url, 'bad format') if _url_domain.nil?
+    errors.add(:url, 'malformed URL') if _url_domain.nil?
   end
 
   def ensure_domain_not_forbidden
