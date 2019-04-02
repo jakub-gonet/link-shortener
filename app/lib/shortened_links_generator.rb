@@ -30,12 +30,12 @@ class ShortenedLinksGenerator
     end
 
     def adjectives
-      file = File.join(File.dirname(__FILE__), 'adjectives.txt')
+      file = File.join(File.dirname(__FILE__), 'assets/adjectives.txt')
       @adjectives ||= resource_from_file(file)
     end
 
     def animals
-      file = File.join(File.dirname(__FILE__), 'animals.txt')
+      file = File.join(File.dirname(__FILE__), 'assets/animals.txt')
       @animals ||= resource_from_file(file)
     end
   end
