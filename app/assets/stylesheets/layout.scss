@@ -1,0 +1,57 @@
+@import "colors_partial";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1, h3, p, li {
+  color: #fff;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+li {
+  font-size: 20px;
+}
+
+.big-text {
+  font-size: 24px;
+}
+
+a {
+  color: #fff;
+  overflow-wrap: break-word;
+}
+
+a:hover {
+  color: $main-color;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.container {
+  margin-top: 50px;
+  min-height: 90vh;
+}
+
+body {
+  background-image: url(background.jpg);
+}
+
+.headline {
+  text-align: center;
+}
