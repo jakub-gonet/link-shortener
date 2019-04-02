@@ -1,8 +1,6 @@
-<div class="mid-container">
   <h1>Views for <i><%= @shortened_url %></i></h1>
   <ul>
     <% @url_views.each do |date, count| %>
       <li> <%= date %> - <%= pluralize(count, 'view') %> </li>
     <% end %>
   </ul>
-</div>

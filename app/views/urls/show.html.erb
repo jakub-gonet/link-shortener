@@ -1,8 +1,6 @@
-<div class="mid-container">
   <h3>URL: </h3>
   <p class="aligned-right big-text"><%= link_to @url.base_url, @url.base_url %></a></p>
   <h3>Shortened URL: </h3>
   <p class="aligned-right big-text">
     <%= link_to "/#{@url.shortened_url}", r_path(@url) %>
   </p>
-</div>

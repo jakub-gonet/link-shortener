@@ -1,10 +1,8 @@
 <h1 class="headline">Link shortener</h1>
 
-<div class="mid-container">
   <%= form_with html: {class: "search-bar"}, model: Url.new do |form| %>
     <%= form.text_field :base_url,
                         placeholder: "Put link here to shorten it",
                         class: "shorten-input" %>
     <%= form.submit class: "shorten-btn" %>
   <% end %>
-</div>

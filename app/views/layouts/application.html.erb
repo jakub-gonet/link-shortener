@@ -9,22 +9,10 @@
 </head>
 
 <body>
-<% flash.each do |key, value| %>
-  <ul class="alert alert-<%= key %>">
-    <% Array(value).each do |origin, messages| %>
-      <li>
-        <%= origin %>
-        <ul>
-          <% messages&.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
 <div class="container">
-  <%= yield %>
+  <div class="mid-container">
+    <%= yield %>
+  </div>
 </div>
 </body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
