@@ -12,13 +12,18 @@ class UrlsController < ApplicationController
   end
 
   def create
-    base_url = params[:url][:base_url] || ''
-    @url = Url.find_or_create_by(base_url: base_url)
+    @url = Url.find_or_create_by(url_params)
     if @url.valid?
       redirect_to @url
     else
       flash[:error] = @url.errors.full_messages
       redirect_to root_path
     end
+  end
+
+  private
+
+  def url_params
+    params.require(:url).permit(:base_url)
   end
 end
