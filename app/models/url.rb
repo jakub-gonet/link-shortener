@@ -5,11 +5,11 @@ require 'addressable/uri'
 class Url < ApplicationRecord
   has_many :url_accesses
   validates :base_url, presence: true
-  validates :shortened_url, presence: true, uniqueness: true
+  validates :shortened_url, presence: true, uniqueness: true, on: :save
   validate :ensure_domain_not_empty
   validate :ensure_domain_not_forbidden
 
-  before_validation :create_shortened_url
+  before_save :create_shortened_url
 
   def to_param
     shortened_url
