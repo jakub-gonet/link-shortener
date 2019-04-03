@@ -28,9 +28,7 @@ class Url < ApplicationRecord
   def ensure_domain_not_forbidden
     domain = _url_domain
     forbidden = Rails.application.config.forbidden_domains
-    if forbidden.any? { |x| domain&.start_with?(x) }
-      errors.add(:domain, "#{domain} can't be used to shorten links")
-    end
+    errors.add(:domain, "#{domain} can't be used to shorten links") if forbidden.any? {|x| domain&.start_with?(x) }
   end
 
   def _url_domain

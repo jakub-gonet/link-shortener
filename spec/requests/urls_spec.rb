@@ -57,7 +57,7 @@ RSpec.describe 'urls#show', type: :request do
   end
   it 'show empty view page when given url is not found' do
     get '/urls/not_shortened'
- 
+
     expect(response.body).not_to include('<li>')
   end
 end
@@ -66,7 +66,7 @@ RSpec.describe 'urls#index', type: :request do
   it "shows only last #{UrlsController::RECENT_URLS_COUNT} shortened links" do
     to_show = UrlsController::RECENT_URLS_COUNT
     range = 1..(to_show + 5)
-    range.each { |n| create_url("#{VALID_URL}-#{n}") }
+    range.each {|n| create_url("#{VALID_URL}-#{n}") }
 
     get '/urls'
 

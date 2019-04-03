@@ -7,7 +7,7 @@ require 'support'
 RSpec.describe UrlAccess, type: :model do
   describe 'validation' do
     context 'with valid url model' do
-      let(:url) {Url.create!(base_url: VALID_URL)}
+      let(:url) { Url.create!(base_url: VALID_URL) }
 
       it 'is valid when IP address is provided' do
         url_access = url.url_accesses.create(ip: VALID_IP)
@@ -32,11 +32,11 @@ RSpec.describe UrlAccess, type: :model do
         expect(data.size).to eq(2)
 
         data.each do |k, _|
-          expect {k.try(:to_date)}.not_to raise_error
+          expect { k.try(:to_date) }.not_to raise_error
         end
       end
       it_behaves_like 'a hash with elements' do
-        let(:hash) {UrlAccess.count_grouped_urls_views_since(DateTime.now - 1)}
+        let(:hash) { UrlAccess.count_grouped_urls_views_since(DateTime.now - 1) }
       end
     end
 
@@ -45,7 +45,7 @@ RSpec.describe UrlAccess, type: :model do
         3.times(&method(:create_url))
       end
       it_behaves_like 'an empty hash' do
-        let(:hash) {UrlAccess.count_grouped_urls_views_since(DateTime.now - 1)}
+        let(:hash) { UrlAccess.count_grouped_urls_views_since(DateTime.now - 1) }
       end
     end
 
@@ -54,13 +54,13 @@ RSpec.describe UrlAccess, type: :model do
         create_url_views(create_url.id, 3, DateTime.now - 7)
       end
       it_behaves_like 'an empty hash' do
-        let(:hash) {UrlAccess.count_grouped_urls_views_since(DateTime.now - 5)}
+        let(:hash) { UrlAccess.count_grouped_urls_views_since(DateTime.now - 5) }
       end
     end
 
     context 'without urls' do
       it_behaves_like 'an empty hash' do
-        let(:hash) {UrlAccess.count_grouped_urls_views_since(DateTime.now - 5)}
+        let(:hash) { UrlAccess.count_grouped_urls_views_since(DateTime.now - 5) }
       end
     end
   end
@@ -79,24 +79,24 @@ RSpec.describe UrlAccess, type: :model do
         expect(data.size).to eq(2)
 
         data.each do |k, _|
-          expect {k.try(:to_date)}.not_to raise_error
+          expect { k.try(:to_date) }.not_to raise_error
         end
       end
       it_behaves_like 'a hash with elements' do
-        let(:hash) {UrlAccess.count_url_views_since(shortened, DateTime.now - 7)}
+        let(:hash) { UrlAccess.count_url_views_since(shortened, DateTime.now - 7) }
       end
     end
 
     context 'with url but without views' do
-      let(:shortened) {create_url.shortened_url}
+      let(:shortened) { create_url.shortened_url }
       it_behaves_like 'an empty hash' do
-        let(:hash) {UrlAccess.count_url_views_since(shortened, DateTime.now - 7)}
+        let(:hash) { UrlAccess.count_url_views_since(shortened, DateTime.now - 7) }
       end
     end
 
     context 'without url' do
       it_behaves_like 'an empty hash' do
-        let(:hash) {UrlAccess.count_url_views_since('', DateTime.now - 7)}
+        let(:hash) { UrlAccess.count_url_views_since('', DateTime.now - 7) }
       end
     end
   end

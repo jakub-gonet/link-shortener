@@ -11,7 +11,7 @@ VALID_URLS = ['https://youtu.be/dQw4w9WgXcQ',
 INVALID_URLS = ['', 'badziebabla'].freeze
 
 def url_params(base_url)
-  { url: { base_url: base_url } }
+  {url: {base_url: base_url}}
 end
 
 def create_url(name = '')
