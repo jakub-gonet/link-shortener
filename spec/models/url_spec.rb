@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
-VALID_URLS = ['https://youtu.be/dQw4w9WgXcQ',
-              'youtu.be/y6120QOlsfU',
-              'example.com/%00'].freeze
-URL_FROM_INVALID_DOMAIN = 'http://bit.do/Sans'
-INVALID_URLS = ['', 'badziebabla'].freeze
+require 'support'
 
 RSpec.describe(Url, type: :model) do
   describe 'validation' do
@@ -18,7 +13,7 @@ RSpec.describe(Url, type: :model) do
     end
 
     it 'is invalid when url from forbidden domains' do
-      url = Url.create(base_url: URL_FROM_INVALID_DOMAIN)
+      url = Url.create(base_url: URL_FORBIDDEN_DOMAIN)
       expect(url).to_not be_valid
     end
 

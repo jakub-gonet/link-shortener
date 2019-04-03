@@ -2,9 +2,7 @@
 
 require 'rails_helper'
 require 'shared_examples'
-
-VALID_URL = 'https://youtu.be/dQw4w9WgXcQ'
-VALID_IP = '127.0.0.1'
+require 'support'
 
 def create_url(name = '')
   Url.create!(base_url: "#{VALID_URL}-#{name}")

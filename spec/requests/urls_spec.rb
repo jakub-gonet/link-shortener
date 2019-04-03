@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
-VALID_URL = 'https://youtu.be/0qzLRlQFFQ4'
-URL_FORBIDDEN_DOMAIN = 'http://bit.do/test'
-INVALID_URL = 'somestring'
+require 'support'
 
 def url_params(base_url)
   { url: { base_url: base_url } }
