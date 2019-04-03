@@ -35,5 +35,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   #
   config.logger = Logger.new(STDOUT)
-  config.log_level = :INFO
+  config.log_level = :WARN
 end
