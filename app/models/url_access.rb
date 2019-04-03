@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-# Represents an access for given url
+# Represents an access for given {url}[rdoc-ref:Url]
 class UrlAccess < ApplicationRecord
   belongs_to :url
   validates :ip, presence: true
 
+  # Finds urls views since given date and counts them by grouping by day for each link
   def self.count_grouped_urls_views_since(date)
     views = UrlAccess.joins(:url)
                      .where('url_accesses.created_at >= :date', date: date)
@@ -15,6 +16,7 @@ class UrlAccess < ApplicationRecord
          .each {|_, v| v.each {|entry| entry.delete_at(1) } }
   end
 
+  # Finds urls views since given date and url and counts them
   def self.count_url_views_since(shortened, date)
     UrlAccess.joins(:url)
              .where('shortened_url = :url AND url_accesses.created_at >= :date',

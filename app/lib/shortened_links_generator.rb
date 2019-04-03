@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
-# Used in shortened links generation
+# Used for shortened links generation
 class ShortenedLinksGenerator
   require 'digest/sha1'
 
+  # Generates human-readable hash from given string
+  # Adjective and animals number can be specified to customize string
+  #
+  #   ShortenedLinksGenerator.shorten("string")
+  #   # => 'ragged-awesome-marmoset'
   def self.shorten(url, adj_n = 2, animals_n = 1)
     unless adj_n.positive? && animals_n.positive?
       raise ArgumentError,
