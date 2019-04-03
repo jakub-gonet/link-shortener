@@ -4,18 +4,6 @@ require 'rails_helper'
 require 'shared_examples'
 require 'support'
 
-def create_url(name = '')
-  Url.create!(base_url: "#{VALID_URL}-#{name}")
-end
-
-def create_url_views(url_id, n, date)
-  n.times do |_|
-    access = UrlAccess.create!(url_id: url_id, ip: VALID_IP)
-    access.created_at = date unless date.nil?
-    access.save
-  end
-end
-
 RSpec.describe UrlAccess, type: :model do
   describe 'validation' do
     context 'with valid url model' do

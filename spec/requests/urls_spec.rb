@@ -3,14 +3,6 @@
 require 'rails_helper'
 require 'support'
 
-def url_params(base_url)
-  { url: { base_url: base_url } }
-end
-
-def create_shortened_url(url)
-  Url.create!(base_url: url)
-end
-
 RSpec.describe 'urls#create', type: :request do
   context 'when valid url is provided' do
     before { post '/urls', params: url_params(VALID_URL) }
@@ -57,7 +49,7 @@ end
 
 RSpec.describe 'urls#show', type: :request do
   it 'shows base and shortened link when valid shortened slug is provided' do
-    url = create_shortened_url(VALID_URL)
+    url = create_url(VALID_URL)
 
     get "/urls/#{url.shortened_url}"
 
@@ -74,7 +66,7 @@ RSpec.describe 'urls#index', type: :request do
   it "shows only last #{UrlsController::RECENT_URLS_COUNT} shortened links" do
     to_show = UrlsController::RECENT_URLS_COUNT
     range = 1..(to_show + 5)
-    range.each { |n| create_shortened_url("#{VALID_URL}-#{n}") }
+    range.each { |n| create_url("#{VALID_URL}-#{n}") }
 
     get '/urls'
 
