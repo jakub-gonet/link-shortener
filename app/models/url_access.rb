@@ -4,7 +4,7 @@ class UrlAccess < ApplicationRecord
   belongs_to :url
   validates :ip, presence: true
 
-  def self.all_urls_views_since(date)
+  def self.count_grouped_urls_views_since(date)
     views = UrlAccess.joins(:url)
                      .where('url_accesses.created_at >= :date', date: date)
                      .group('shortened_url, DATE(url_accesses.created_at)')
