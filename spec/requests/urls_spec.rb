@@ -55,10 +55,10 @@ RSpec.describe 'urls#show', type: :request do
 
     expect(response.body).to include(url.base_url, url.shortened_url)
   end
-  it 'redirects to error page when given url is not found' do
+  it 'show empty view page when given url is not found' do
     get '/urls/not_shortened'
-
-    expect(response).to redirect_to '/404'
+ 
+    expect(response.body).not_to include('<li>')
   end
 end
 
