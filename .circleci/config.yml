@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    machine: true # Use a Linux VM instead of docker environment
+    working_directory: ~/app
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: docker-compose up -d
+
+      - run:
+          name: Setup DB
+          command: docker-compose exec web bundle exec rake db:create db:migrate
+
+      - run:
+          name: Run tests
+          command: docker-compose exec web bundle exec rspec
