@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '2.6.2'
 
 gem 'addressable', '~> 2.6'
 gem 'bootsnap', '>= 1.1.2', require: false
@@ -33,9 +33,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
 end
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
