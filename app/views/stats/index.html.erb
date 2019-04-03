@@ -1,12 +1,12 @@
-  <h1>All shortened urls views</h1>
-  <ul>
-    <% @urls_views.each do |date, views| %>
-      <li>Views for <%= "#{date}" %>
-        <ul>
-          <% views.each do |name, count| %>
-            <li>for <%= link_to name, url_path(name) %> - <%= pluralize(count, "view") %></li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
+<h1>All shortened urls views</h1>
+<ul>
+  <% @urls_views.each do |date, views| %>
+    <li>Views for <%= "#{date}" %>
+      <ul>
+        <% views.each do |name, count| %>
+          <li>for <%= link_to name, url_path(name) %> - <%= pluralize(count, "view") %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
