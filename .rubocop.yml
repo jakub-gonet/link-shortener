@@ -6,6 +6,16 @@ AllCops:
     - 'vendor/bundle/**/*'
     - 'bin/**/*'
 
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - 'app/helpers/**/*'
+
 Metrics/LineLength:
   Max: 120
 
