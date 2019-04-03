@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Provides endpoints to check shortened links stats (like view count)
 class StatsController < ApplicationController
   RECENT_DAYS = 30
 

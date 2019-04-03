@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Used for handling exceptions raised in other controllers and for showing root path view
 class ApplicationController < ActionController::Base
   def index
     render 'index'

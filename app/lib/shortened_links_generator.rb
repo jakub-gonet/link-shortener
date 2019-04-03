@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Used in shortened links generation
 class ShortenedLinksGenerator
   require 'digest/sha1'
 

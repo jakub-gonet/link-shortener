@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Represents an access for given url
 class UrlAccess < ApplicationRecord
   belongs_to :url
   validates :ip, presence: true

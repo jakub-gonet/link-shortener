@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Used in creation of new shortened urls and showing theirs detailed info
 class UrlsController < ApplicationController
   RECENT_URLS_COUNT = 30
   def index
