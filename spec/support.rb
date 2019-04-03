@@ -18,8 +18,8 @@ def create_url(name = '')
   Url.create!(base_url: "#{VALID_URL}-#{name}")
 end
 
-def create_url_views(url_id, n, date)
-  n.times do |_|
+def create_url_views(url_id, number, date)
+  number.times do |_|
     access = UrlAccess.create!(url_id: url_id, ip: VALID_IP)
     access.created_at = date unless date.nil?
     access.save
