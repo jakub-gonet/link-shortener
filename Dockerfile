@@ -8,5 +8,6 @@ RUN bundle config --global frozen 1
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler:2.0.1
 RUN bundle install --quiet
+RUN bundle exec rake db:create db:migrate
 
 COPY . .

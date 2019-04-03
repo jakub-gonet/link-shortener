@@ -10,9 +10,5 @@ jobs:
           command: docker-compose up -d
 
       - run:
-          name: Setup DB
-          command: docker-compose exec web bundle exec rake db:create db:migrate
-
-      - run:
           name: Run tests
           command: docker-compose exec web bundle exec rspec
