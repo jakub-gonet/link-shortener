@@ -6,17 +6,5 @@
   <%= form.submit class: "shorten-btn" %>
 <% end %>
 <% unless flash[:error].nil? %>
-  <div class="errors">
-    <ul>
-      <% Array(flash[:error]).each do |origin, messages| %>
-        <li>Origin: <%= origin %>
-          <ul>
-            <% messages&.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+  <%= render 'shared/list_errors.html' %>
 <% end %>

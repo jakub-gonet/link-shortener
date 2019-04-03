@@ -1,0 +1,13 @@
+<div class="errors">
+  <ul>
+    <% Array(flash[:error]).each do |origin, messages| %>
+      <li>Origin: <%= origin %>
+        <ul>
+          <% messages&.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
