@@ -19,4 +19,4 @@ jobs:
           name: Run tests
           command: docker-compose exec web bundle exec rspec
       - codecov/upload:
-          file: 
+          file:
