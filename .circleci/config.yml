@@ -10,11 +10,16 @@ jobs:
           command: docker-compose up -d
 
       - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
           name: Setup DB
           command: docker-compose exec web rails db:create db:migrate
 
       - run:
           name: Run tests
           command: docker-compose exec web bundle exec rspec
+
       - store_artifacts:
           path: coverage

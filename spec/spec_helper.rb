@@ -16,8 +16,12 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
+require 'codecov'
+require 'coveralls'
 
-SimpleCov.start 'rails' do
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+
+SimpleCov.start do
   add_filter %r{^/spec/}
   add_filter %r{^/config/}
 end
