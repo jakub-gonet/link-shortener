@@ -1,4 +1,6 @@
 # Link shortener
+[![CircleCI](https://circleci.com/gh/jakub-gonet/link-shortener/tree/master.svg?style=svg)](https://circleci.com/gh/jakub-gonet/link-shortener/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/jakub-gonet/link-shortener/badge.svg?branch=master)](https://coveralls.io/github/jakub-gonet/link-shortener?branch=master)
 
 Just a simple, handcrafted and human-readable link shortener.
 It creates shorts by taking random words from dictionary in pattern: 
