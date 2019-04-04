@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-git_source(:github) {|repo| "https://github.com/#{repo}.git" }
+git_source(:github) {|repo| "https://github.com/#{repo}.git"}
 
 ruby '2.6.2'
 
@@ -33,9 +33,10 @@ group :development do
 end
 
 group :test do
+  gem 'codecov', require: false
   gem 'coveralls', require: false
   gem 'capybara', '>= 2.15'
-  gem 'webdrivers' 
+  gem 'webdrivers'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
 end

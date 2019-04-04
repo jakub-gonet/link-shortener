@@ -17,16 +17,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
 
-SimpleCov.start do
+SimpleCov.start 'rails' do
   add_filter %r{^/spec/}
   add_filter %r{^/config/}
 end
-
-if ENV['CI'] == 'true'
-  require 'codecov'
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-end
-
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
