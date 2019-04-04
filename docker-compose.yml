@@ -6,6 +6,11 @@ services:
       - 'db:/var/lib/postgresql/data'
     env_file:
       - '.env'
+    healthcheck:
+      test: /usr/bin/pg_isready
+      interval: 5s
+      timeout: 10s
+      retries: 120
   web:
     build: .
     depends_on:
