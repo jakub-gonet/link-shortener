@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  codecov: codecov/codecov@1.0.2
 jobs:
   build:
     machine: true # Use a Linux VM instead of docker environment
@@ -18,5 +16,5 @@ jobs:
       - run:
           name: Run tests
           command: docker-compose exec web bundle exec rspec
-      - codecov/upload:
-          file:
+      - store_artifacts:
+          path: coverage
