@@ -9,7 +9,7 @@ gem 'addressable', '~> 2.6'
 gem 'bootsnap', '>= 1.1.2', require: false
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 gem 'rubocop', require: false
 gem 'sass-rails', '~> 5.0'
